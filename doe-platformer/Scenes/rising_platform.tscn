@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://vnksxspx7tgn"]
+
+[ext_resource type="Texture2D" uid="uid://dv78k5bstq34o" path="res://Art/Pixel Adventure/Pixel Adventure 1/Assets/Traps/Falling Platforms/On (32x10).png" id="1_1i6wa"]
+[ext_resource type="Script" uid="uid://c1c78wsy5yo7m" path="res://Scripts/rising_platform.gd" id="1_2xnc2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xnc2"]
+atlas = ExtResource("1_1i6wa")
+region = Rect2(0, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbxgm"]
+atlas = ExtResource("1_1i6wa")
+region = Rect2(32, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7of4"]
+atlas = ExtResource("1_1i6wa")
+region = Rect2(64, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2p1t"]
+atlas = ExtResource("1_1i6wa")
+region = Rect2(96, 0, 32, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y3s36"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xnc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbxgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7of4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2p1t")
+}],
+"loop": true,
+"name": &"move",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8wi8"]
+size = Vector2(32, 5)
+
+[node name="rising_platform" type="AnimatableBody2D" unique_id=623579594]
+script = ExtResource("1_2xnc2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=531413623]
+sprite_frames = SubResource("SpriteFrames_y3s36")
+animation = &"move"
+frame_progress = 0.27600354
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=160512348]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_n8wi8")
+one_way_collision = true
+
+[node name="Timer" type="Timer" parent="." unique_id=2127500839]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
