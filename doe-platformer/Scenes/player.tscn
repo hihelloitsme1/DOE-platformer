@@ -204,7 +204,8 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_aftqw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkybt"]
+size = Vector2(11, 14)
 
 [node name="Player" type="CharacterBody2D" unique_id=1142473254 node_paths=PackedStringArray("animated_sprite_2d")]
 script = ExtResource("1_cvnsp")
@@ -214,8 +215,8 @@ animated_sprite_2d = NodePath("AnimatedSprite2D")
 z_index = 1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_ukyrk")
-animation = &"jump"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1240155099]
-position = Vector2(0, -12)
-shape = SubResource("CircleShape2D_aftqw")
+position = Vector2(0.5, -10)
+shape = SubResource("RectangleShape2D_fkybt")

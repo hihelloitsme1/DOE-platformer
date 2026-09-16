@@ -16,14 +16,14 @@ func _ready():
 	animated_sprite_2d.play("move");
 
 func _physics_process(delta):
-	if position.y < bounds.x or position.y > bounds.y:
+	if position.x < bounds.x or position.x > bounds.y:
 		direction *= -1;
 		timer.start()
 		go = false;
-		position.y = bounds.x if position.y < bounds.x else bounds.y;
+		position.x = bounds.x if position.x < bounds.x else bounds.y;
 		animated_sprite_2d.stop();
 	if (go):
-		position.y += speed * direction;
+		position.x += speed * direction;
 
 func _on_timer_timeout():
 	go = true
