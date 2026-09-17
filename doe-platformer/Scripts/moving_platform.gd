@@ -26,5 +26,8 @@ func _physics_process(delta):
 		position.x += speed * direction;
 
 func _on_timer_timeout():
-	go = true
+	go = true;
 	animated_sprite_2d.play("move");
+
+func die():
+	get_tree().reload_current_scene();

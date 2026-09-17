@@ -1,10 +1,12 @@
 [gd_scene format=4 uid="uid://c8gik7q8q2owj"]
 
 [ext_resource type="PackedScene" uid="uid://drtwgj1h3hekr" path="res://Scenes/player.tscn" id="1_ebmjs"]
-[ext_resource type="Script" uid="uid://38h8j87hhjaf" path="res://Scripts/camera_follow.gd" id="2_3dryh"]
+[ext_resource type="Script" uid="uid://38h8j87hhjaf" path="res://Scripts/camera_look.gd" id="2_i6g32"]
 [ext_resource type="Texture2D" uid="uid://cym4exu7w3m3v" path="res://Art/Pixel Adventure/Pixel Adventure 1/Assets/Terrain/Terrain (16x16) 1.png" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://vnksxspx7tgn" path="res://Scenes/Platforms/rising_platform.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://br70aqmxyocvi" path="res://Scenes/Platforms/moving_platform_brown.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://ctyhdorfyhqpk" path="res://Scenes/Traps/Spikes.tscn" id="6_i6g32"]
+[ext_resource type="PackedScene" uid="uid://dta4mae0hu86a" path="res://Scenes/hurtbox.tscn" id="7_1l0tm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxrlw"]
 texture = ExtResource("2_qxrlw")
@@ -301,16 +303,21 @@ texture = ExtResource("2_qxrlw")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qxrlw")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1l0tm"]
+
 [node name="Game" type="Node2D" unique_id=750856830]
 
 [node name="Player" parent="." unique_id=1142473254 instance=ExtResource("1_ebmjs")]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1334496151]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1334496151]
 position = Vector2(0, -20)
+offset = Vector2(0, -30)
 zoom = Vector2(4, 4)
+limit_left = -48
+limit_bottom = 80
 position_smoothing_enabled = true
-script = ExtResource("2_3dryh")
-bounds = Vector2(0, -20)
+position_smoothing_speed = 1.0
+script = ExtResource("2_i6g32")
 
 [node name="Terrain" type="TileMapLayer" parent="." unique_id=1454329253]
 tile_map_data = PackedByteArray("AAD+/wEAAAAHAAAAAAD//wEAAAAHAAAAAAAAAAEAAAAHAAAAAAABAAEAAAAHAAAAAAD9/wEAAAAGAAAAAAACAAEAAAAIAAAAAAD+/wIAAAAHAAEAAAD//wIAAAAHAAEAAAAAAAIAAAAHAAEAAAABAAIAAAAHAAEAAAD+/wMAAAAJAAEAAAD//wMAAAAKAAEAAAAAAAMAAAAHAAEAAAABAAMAAAAHAAEAAAACAAIAAAAIAAEAAAACAAMAAAAIAAEAAAACAAQAAAAIAAIAAAD9/wIAAAAGAAEAAAD9/wMAAAAGAAEAAAD9/wQAAAAGAAIAAAD+/wQAAAAHAAIAAAD//wQAAAAHAAIAAAAAAAQAAAAHAAIAAAABAAQAAAAHAAIAAAAFAAIAAAAGAAEAAAAFAAEAAAAGAAEAAAAFAAAAAAAGAAAAAAAGAAAAAAAHAAAAAAAGAAEAAAAHAAEAAAAGAAIAAAAHAAEAAAAHAAIAAAAHAAEAAAAIAAIAAAAIAAEAAAAIAAEAAAAIAAEAAAAIAAAAAAAIAAAAAAAHAAAAAAAHAAAAAAAHAAEAAAAHAAEAAAAFAAMAAAAGAAEAAAAGAAMAAAAHAAEAAAAHAAMAAAAHAAEAAAAIAAMAAAAIAAEAAAAGAAQAAAAHAAIAAAAHAAQAAAAHAAIAAAAFAAQAAAAGAAIAAAAIAAQAAAAIAAIAAAANAP//AAAAAAUAAAANAP7/AAAAAAUAAAANAP3/AAAAAAUAAAANAPz/AAAAAAUAAAAQAP//AAACAAUAAAAQAP7/AAACAAUAAAAQAP3/AAACAAUAAAAQAPz/AAACAAUAAAAPAP//AAABAAUAAAAOAP//AAABAAUAAAAOAP7/AAABAAUAAAAOAP3/AAABAAUAAAAPAP7/AAABAAUAAAAPAP3/AAABAAUAAAAOAPz/AAABAAUAAAAPAPz/AAABAAUAAAANAPv/AAAAAAQAAAAQAPv/AAACAAQAAAAOAPv/AAABAAQAAAAPAPv/AAABAAQAAAAPAAIAAAABAAYAAAAOAAIAAAABAAYAAAAQAAIAAAACAAYAAAANAAIAAAAAAAYAAAAQAAEAAAACAAUAAAAQAAAAAAACAAUAAAANAAEAAAAAAAUAAAANAAAAAAAAAAUAAAAOAAAAAAABAAUAAAAOAAEAAAABAAUAAAAPAAEAAAABAAUAAAAPAAAAAAABAAUAAAAaAPv/AAAAAAQAAAAaAPz/AAAAAAUAAAAaAP3/AAAAAAYAAAAbAPv/AAABAAQAAAAbAPz/AAABAAUAAAAbAP3/AAABAAYAAAAcAPv/AAACAAQAAAAcAPz/AAACAAUAAAAcAP3/AAACAAYAAAAfAAAAAAAGAAAAAAAjAAAAAAAIAAAAAAAgAAAAAAAHAAAAAAAhAAAAAAAHAAAAAAAiAAAAAAAHAAAAAAAgAAQAAAAHAAIAAAAhAAQAAAAHAAIAAAAiAAQAAAAHAAIAAAAfAAQAAAAGAAIAAAAjAAQAAAAIAAIAAAAjAAEAAAAIAAEAAAAjAAIAAAAIAAEAAAAjAAMAAAAIAAEAAAAfAAMAAAAGAAEAAAAfAAIAAAAGAAEAAAAfAAEAAAAGAAEAAAAgAAEAAAAHAAEAAAAgAAIAAAAHAAEAAAAgAAMAAAAHAAEAAAAhAAMAAAAHAAEAAAAiAAMAAAAHAAEAAAAiAAIAAAAHAAEAAAAhAAIAAAAHAAEAAAAhAAEAAAAHAAEAAAAiAAEAAAAHAAEAAAA=")
@@ -323,3 +330,18 @@ bounds = Vector2(-75, 5)
 [node name="moving_platform_brown" parent="." unique_id=623579594 instance=ExtResource("5_wowpa")]
 position = Vector2(400, -75)
 bounds = Vector2(287, 400)
+
+[node name="Spikes" parent="." unique_id=1779238335 instance=ExtResource("6_i6g32")]
+position = Vector2(113, 0)
+
+[node name="Spikes2" parent="." unique_id=994591802 instance=ExtResource("6_i6g32")]
+position = Vector2(507, 0)
+
+[node name="Spikes3" parent="." unique_id=1165202237 instance=ExtResource("6_i6g32")]
+position = Vector2(556, 0)
+
+[node name="Hurtbox" parent="." unique_id=1265848002 instance=ExtResource("7_1l0tm")]
+position = Vector2(0, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=632466949]
+shape = SubResource("WorldBoundaryShape2D_1l0tm")

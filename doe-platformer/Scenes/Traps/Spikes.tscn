@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ctyhdorfyhqpk"]
+
+[ext_resource type="Texture2D" uid="uid://catsms5r0l0hk" path="res://Art/Pixel Adventure/Pixel Adventure 1/Assets/Traps/Spikes/Idle.png" id="1_ggyip"]
+[ext_resource type="PackedScene" uid="uid://dta4mae0hu86a" path="res://Scenes/hurtbox.tscn" id="2_yyxxq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggyip"]
+size = Vector2(15, 7)
+
+[node name="Spikes" type="StaticBody2D" unique_id=1779238335]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=55095393]
+position = Vector2(0, -8)
+texture = ExtResource("1_ggyip")
+
+[node name="Hurtbox" parent="." unique_id=1265848002 instance=ExtResource("2_yyxxq")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1764745608]
+position = Vector2(-0.5, -3.5)
+shape = SubResource("RectangleShape2D_ggyip")

@@ -35,3 +35,6 @@ func _physics_process(delta):
 		else:
 			animated_sprite_2d.play("fall")
 	move_and_slide()
+
+func die():
+	get_tree().reload_current_scene();
