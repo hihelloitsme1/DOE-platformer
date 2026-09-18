@@ -5,10 +5,39 @@
 [ext_resource type="Texture2D" uid="uid://dev5x48kd76vo" path="res://Art/Pixel Adventure/Pixel Adventure 1/Assets/Main Characters/Ninja Frog/Fall (32x32).png" id="2_fkybt"]
 [ext_resource type="Texture2D" uid="uid://e6u4xeh3e0ck" path="res://Art/Pixel Adventure/Pixel Adventure 1/Assets/Main Characters/Ninja Frog/Run (32x32).png" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://cp6remwxv8is6" path="res://Art/Pixel Adventure/Pixel Adventure 1/Assets/Main Characters/Ninja Frog/Jump (32x32).png" id="3_vgqql"]
+[ext_resource type="Texture2D" uid="uid://dh5vajlbfpg02" path="res://Art/Pixel Adventure/Pixel Adventure 1/Assets/Main Characters/Ninja Frog/Hit (32x32).png" id="3_x3wgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0gysh"]
 atlas = ExtResource("2_fkybt")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfarp"]
+atlas = ExtResource("3_x3wgy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6uwr"]
+atlas = ExtResource("3_x3wgy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83xs0"]
+atlas = ExtResource("3_x3wgy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypfnu"]
+atlas = ExtResource("3_x3wgy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuaoq"]
+atlas = ExtResource("3_x3wgy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wohnl"]
+atlas = ExtResource("3_x3wgy")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36dho"]
+atlas = ExtResource("3_x3wgy")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -118,6 +147,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vfarp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6uwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83xs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypfnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuaoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wohnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36dho")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_cvnsp")
 }, {
 "duration": 1.0,
@@ -215,8 +270,13 @@ animated_sprite_2d = NodePath("AnimatedSprite2D")
 z_index = 1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_ukyrk")
-animation = &"run"
+animation = &"hit"
+frame = 1
+frame_progress = 0.9345323
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1240155099]
 position = Vector2(0.5, -9.5)
 shape = SubResource("RectangleShape2D_fkybt")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
