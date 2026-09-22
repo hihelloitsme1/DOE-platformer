@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggyip"]
 size = Vector2(15, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyxxq"]
+size = Vector2(13, 6)
+
 [node name="Spikes" type="StaticBody2D" unique_id=1779238335]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=55095393]
@@ -17,3 +20,7 @@ texture = ExtResource("1_ggyip")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1764745608]
 position = Vector2(-0.5, -3.5)
 shape = SubResource("RectangleShape2D_ggyip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=711192622]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_yyxxq")
