@@ -23,7 +23,7 @@ func _physics_process(delta):
 		position.x = bounds.x if position.x < bounds.x else bounds.y;
 		animated_sprite_2d.stop();
 	if (go):
-		position.x += speed * direction;
+		position.x += speed * direction * Engine.time_scale;
 
 func _on_timer_timeout():
 	go = true;

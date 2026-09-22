@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cbt2d1x6p1rrh"]
+
+[ext_resource type="Script" uid="uid://dii6o1sjv36et" path="res://Scripts/fan.gd" id="1_nfiji"]
+[ext_resource type="Texture2D" uid="uid://dpoipnpvh0mm7" path="res://Art/Pixel Adventure/Pixel Adventure 1/Assets/Traps/Fan/On (24x8).png" id="1_rog72"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfiji"]
+atlas = ExtResource("1_rog72")
+region = Rect2(0, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6bxr"]
+atlas = ExtResource("1_rog72")
+region = Rect2(24, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbowg"]
+atlas = ExtResource("1_rog72")
+region = Rect2(48, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn3eh"]
+atlas = ExtResource("1_rog72")
+region = Rect2(72, 0, 24, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jvs0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfiji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6bxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbowg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn3eh")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfiji"]
+size = Vector2(21, 65)
+
+[node name="Fan" type="Area2D" unique_id=858606432]
+script = ExtResource("1_nfiji")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2125491562]
+sprite_frames = SubResource("SpriteFrames_jvs0n")
+animation = &"spin"
+autoplay = "spin"
+frame_progress = 0.089805946
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=797169225]
+position = Vector2(0.5, -28.5)
+shape = SubResource("RectangleShape2D_nfiji")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
