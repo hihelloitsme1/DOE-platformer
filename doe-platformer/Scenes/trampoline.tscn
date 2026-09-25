@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://blcnltlttd3yc"]
+
+[ext_resource type="Script" uid="uid://cy2dhg1k28mgj" path="res://Scripts/trampoline.gd" id="1_c350b"]
+[ext_resource type="Texture2D" uid="uid://hl8l2i25a00l" path="res://Art/Pixel Adventure/Pixel Adventure 1/Assets/Traps/Trampoline/Jump (28x28).png" id="1_mlct0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c350b"]
+atlas = ExtResource("1_mlct0")
+region = Rect2(0, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmic8"]
+atlas = ExtResource("1_mlct0")
+region = Rect2(28, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13h76"]
+atlas = ExtResource("1_mlct0")
+region = Rect2(56, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhm4o"]
+atlas = ExtResource("1_mlct0")
+region = Rect2(84, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssaqo"]
+atlas = ExtResource("1_mlct0")
+region = Rect2(112, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asl25"]
+atlas = ExtResource("1_mlct0")
+region = Rect2(140, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85b7h"]
+atlas = ExtResource("1_mlct0")
+region = Rect2(168, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ljek"]
+atlas = ExtResource("1_mlct0")
+region = Rect2(196, 0, 28, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mnv7m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c350b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmic8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13h76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhm4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssaqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asl25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85b7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ljek")
+}],
+"loop": false,
+"name": &"bounce",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlct0"]
+size = Vector2(25, 9)
+
+[node name="Trampoline" type="Area2D" unique_id=91627384]
+script = ExtResource("1_c350b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=776800410]
+sprite_frames = SubResource("SpriteFrames_mnv7m")
+animation = &"bounce"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=993289013]
+position = Vector2(-0.5, 9.5)
+shape = SubResource("RectangleShape2D_mlct0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]

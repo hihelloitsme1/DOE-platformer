@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bxk1keyv07m60"]
+
+[ext_resource type="Script" uid="uid://22q5km0m7njw" path="res://Scripts/spike_head.gd" id="1_pjpsl"]
+[ext_resource type="Texture2D" uid="uid://s41mtjdceeef" path="res://Art/Pixel Adventure/Pixel Adventure 1/Assets/Traps/Spike Head/Blink (54x52).png" id="1_v5qve"]
+[ext_resource type="Texture2D" uid="uid://bpsg1p2wvr00c" path="res://Art/Pixel Adventure/Pixel Adventure 1/Assets/Traps/Spike Head/Idle.png" id="2_qcp1e"]
+[ext_resource type="PackedScene" uid="uid://dta4mae0hu86a" path="res://Scenes/hurtbox.tscn" id="3_qcp1e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjpsl"]
+atlas = ExtResource("1_v5qve")
+region = Rect2(0, 0, 54, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enyvf"]
+atlas = ExtResource("1_v5qve")
+region = Rect2(54, 0, 54, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n51w0"]
+atlas = ExtResource("1_v5qve")
+region = Rect2(108, 0, 54, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evga0"]
+atlas = ExtResource("1_v5qve")
+region = Rect2(162, 0, 54, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swpvt"]
+atlas = ExtResource("2_qcp1e")
+region = Rect2(0, 0, 54, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3qlfd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjpsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enyvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n51w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evga0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swpvt")
+}],
+"loop": false,
+"name": &"blink",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcp1e"]
+size = Vector2(21, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjpsl"]
+size = Vector2(43, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enyvf"]
+size = Vector2(29, 29)
+
+[node name="Spike Head" type="StaticBody2D" unique_id=1281733466]
+script = ExtResource("1_pjpsl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=885789042]
+sprite_frames = SubResource("SpriteFrames_3qlfd")
+animation = &"blink"
+frame_progress = 0.3102134
+
+[node name="Hurtbox" parent="." unique_id=1265848002 instance=ExtResource("3_qcp1e")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=249098871]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_qcp1e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" unique_id=929554844]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_pjpsl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=875578027]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_enyvf")
+
+[node name="Timer" type="Timer" parent="." unique_id=1811634911]
+wait_time = 15.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

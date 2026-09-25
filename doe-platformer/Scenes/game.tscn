@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://ctyhdorfyhqpk" path="res://Scenes/Traps/Spikes.tscn" id="6_i6g32"]
 [ext_resource type="PackedScene" uid="uid://dta4mae0hu86a" path="res://Scenes/hurtbox.tscn" id="7_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://cbt2d1x6p1rrh" path="res://Scenes/fan.tscn" id="8_v158k"]
+[ext_resource type="PackedScene" uid="uid://blcnltlttd3yc" path="res://Scenes/trampoline.tscn" id="10_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://bxk1keyv07m60" path="res://Scenes/Traps/spike_head.tscn" id="11_o5yvi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxrlw"]
 texture = ExtResource("2_qxrlw")
@@ -337,15 +339,6 @@ bounds = Vector2(-75, 5)
 position = Vector2(400, -75)
 bounds = Vector2(287, 400)
 
-[node name="Spikes" parent="." unique_id=1779238335 instance=ExtResource("6_i6g32")]
-position = Vector2(113, 0)
-
-[node name="Spikes2" parent="." unique_id=994591802 instance=ExtResource("6_i6g32")]
-position = Vector2(507, 0)
-
-[node name="Spikes3" parent="." unique_id=1165202237 instance=ExtResource("6_i6g32")]
-position = Vector2(556, 0)
-
 [node name="Hurtbox" parent="." unique_id=1265848002 instance=ExtResource("7_1l0tm")]
 position = Vector2(0, 100)
 
@@ -354,3 +347,18 @@ shape = SubResource("WorldBoundaryShape2D_1l0tm")
 
 [node name="Fan" parent="." unique_id=858606432 instance=ExtResource("8_v158k")]
 position = Vector2(90, -3)
+
+[node name="Spikes" parent="." unique_id=419104963 instance=ExtResource("6_i6g32")]
+position = Vector2(134, -8)
+
+[node name="Spikes2" parent="." unique_id=2071442694 instance=ExtResource("6_i6g32")]
+position = Vector2(565, -8)
+
+[node name="Spikes3" parent="." unique_id=1779238335 instance=ExtResource("6_i6g32")]
+position = Vector2(-35, 7)
+
+[node name="Trampoline" parent="." unique_id=91627384 instance=ExtResource("10_ldgsr")]
+position = Vector2(35, 2)
+
+[node name="Spike Head" parent="." unique_id=1281733466 instance=ExtResource("11_o5yvi")]
+position = Vector2(344, -140)
