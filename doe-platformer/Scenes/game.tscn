@@ -8,11 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://br70aqmxyocvi" path="res://Scenes/Platforms/moving_platform_brown.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://ctyhdorfyhqpk" path="res://Scenes/Traps/Spikes.tscn" id="6_i6g32"]
 [ext_resource type="PackedScene" uid="uid://dta4mae0hu86a" path="res://Scenes/hurtbox.tscn" id="7_1l0tm"]
-[ext_resource type="PackedScene" uid="uid://cbt2d1x6p1rrh" path="res://Scenes/fan.tscn" id="8_v158k"]
-[ext_resource type="PackedScene" uid="uid://blcnltlttd3yc" path="res://Scenes/trampoline.tscn" id="10_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://cbt2d1x6p1rrh" path="res://Scenes/Interactables/fan.tscn" id="8_v158k"]
+[ext_resource type="PackedScene" uid="uid://blcnltlttd3yc" path="res://Scenes/Interactables/trampoline.tscn" id="10_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://bxk1keyv07m60" path="res://Scenes/Traps/spike_head.tscn" id="11_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://b1kof7jaujqvc" path="res://Scenes/Enemies/chicken.tscn" id="12_rku1e"]
 [ext_resource type="PackedScene" uid="uid://cpfnj5vkn3og1" path="res://Scenes/Enemies/fat_bird.tscn" id="13_rfjv2"]
+[ext_resource type="PackedScene" uid="uid://cgfq444a42tir" path="res://Scenes/Platforms/block.tscn" id="14_1phco"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxrlw"]
 texture = ExtResource("2_qxrlw")
@@ -366,4 +367,6 @@ bounds = Vector2(505, 710)
 
 [node name="Fat Bird" parent="." unique_id=1812321336 instance=ExtResource("13_rfjv2")]
 position = Vector2(121, -145)
-constant_linear_velocity = Vector2(0, 10000)
+
+[node name="Block" parent="." unique_id=608109146 instance=ExtResource("14_1phco")]
+position = Vector2(63, -45)

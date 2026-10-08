@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cgfq444a42tir"]
+
+[ext_resource type="Texture2D" uid="uid://1lhn6wfvjjx0" path="res://Art/Pixel Adventure/Pixel Adventure 1/Assets/Traps/Blocks/Idle.png" id="1_40wvq"]
+[ext_resource type="Script" uid="uid://blgw6g1dh861y" path="res://Scripts/block.gd" id="1_c4nwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4nwb"]
+size = Vector2(16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3srf"]
+atlas = ExtResource("1_40wvq")
+region = Rect2(0, 0, 22, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bei6r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3srf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40wvq"]
+size = Vector2(16, 16)
+
+[node name="Block" type="StaticBody2D" unique_id=608109146]
+script = ExtResource("1_c4nwb")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=609768482]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2074749401]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_c4nwb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1543098299]
+sprite_frames = SubResource("SpriteFrames_bei6r")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=141043638]
+shape = SubResource("RectangleShape2D_40wvq")
+
+[node name="Timer" type="Timer" parent="." unique_id=344608345]
+wait_time = 0.75
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
