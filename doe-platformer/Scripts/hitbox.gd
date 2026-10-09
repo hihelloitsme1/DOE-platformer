@@ -1,6 +1,6 @@
 extends Area2D
 
-var bounce_height: float = -200
+@export var bounce_height: float = -200
 @onready var animated_sprite_2d = $"../AnimatedSprite2D"
 
 func _on_body_entered(body):

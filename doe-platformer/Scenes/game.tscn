@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b1kof7jaujqvc" path="res://Scenes/Enemies/chicken.tscn" id="12_rku1e"]
 [ext_resource type="PackedScene" uid="uid://cpfnj5vkn3og1" path="res://Scenes/Enemies/fat_bird.tscn" id="13_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://cgfq444a42tir" path="res://Scenes/Platforms/block.tscn" id="14_1phco"]
+[ext_resource type="PackedScene" uid="uid://dhv05i0w2v0hh" path="res://Scenes/Enemies/mushroom.tscn" id="15_nb51f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxrlw"]
 texture = ExtResource("2_qxrlw")
@@ -370,3 +371,7 @@ position = Vector2(121, -145)
 
 [node name="Block" parent="." unique_id=608109146 instance=ExtResource("14_1phco")]
 position = Vector2(63, -45)
+
+[node name="Mushroom" parent="." unique_id=175459613 instance=ExtResource("15_nb51f")]
+position = Vector2(707, -15)
+bounds = Vector2(511, 707)
