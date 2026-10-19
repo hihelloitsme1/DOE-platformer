@@ -271,10 +271,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30kyu"]
-size = Vector2(27, 20)
+size = Vector2(27, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0683f"]
-size = Vector2(25, 7)
+size = Vector2(25, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6nsvf"]
 size = Vector2(23, 25)
@@ -290,7 +290,7 @@ autoplay = "idle"
 [node name="Hurtbox" parent="." unique_id=1265848002 instance=ExtResource("5_vaa48")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1699314070]
-position = Vector2(-0.5, 6)
+position = Vector2(-0.5, 8.5)
 shape = SubResource("RectangleShape2D_30kyu")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1481787884]
@@ -298,7 +298,7 @@ script = ExtResource("6_28qq2")
 bounce_height = -400.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1736176050]
-position = Vector2(-0.5, -7.5)
+position = Vector2(-0.5, -5)
 shape = SubResource("RectangleShape2D_0683f")
 one_way_collision_margin = 0.0
 
