@@ -370,14 +370,11 @@ metadata/_edit_lock_ = true
 position = Vector2(860, 17)
 bounds = Vector2(860, 982)
 
-[node name="Spikes2" parent="." unique_id=1956294545 instance=ExtResource("6_gk1sg")]
-position = Vector2(128, -8)
-
 [node name="Spikes3" parent="." unique_id=1720479912 instance=ExtResource("6_gk1sg")]
 position = Vector2(391, -8)
 
 [node name="Spikes4" parent="." unique_id=1638307811 instance=ExtResource("6_gk1sg")]
-position = Vector2(643, -8)
+position = Vector2(637, -8)
 
 [node name="Spikes5" parent="." unique_id=2019137094 instance=ExtResource("6_gk1sg")]
-position = Vector2(684, -8)
+position = Vector2(692, -8)
