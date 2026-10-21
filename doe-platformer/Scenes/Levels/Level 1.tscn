@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bxk1keyv07m60" path="res://Scenes/Traps/spike_head.tscn" id="8_ak4ck"]
 [ext_resource type="PackedScene" uid="uid://cv7e2vjnoct6" path="res://Scenes/Traps/Saw.tscn" id="8_st7rb"]
 [ext_resource type="PackedScene" uid="uid://dhv05i0w2v0hh" path="res://Scenes/Enemies/mushroom.tscn" id="10_ak4ck"]
+[ext_resource type="PackedScene" uid="uid://dh4ufmuqmpxq5" path="res://Scenes/Interactables/end_flag.tscn" id="11_uvw2q"]
+[ext_resource type="PackedScene" uid="uid://7qb71ldsuwbo" path="res://Scenes/Enemies/blue_bird.tscn" id="12_6xml1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e57xo"]
 texture = ExtResource("1_vnbq0")
@@ -316,7 +318,7 @@ tile_map_data = PackedByteArray("AAD+/wEAAAAHAAAAAAD//wEAAAAHAAAAAAAAAAEAAAAHAAA
 tile_set = SubResource("TileSet_d80xo")
 
 [node name="Player" parent="." unique_id=1142473254 instance=ExtResource("2_o22s6")]
-position = Vector2(2, 17)
+position = Vector2(-4, 4)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1042398333]
 position = Vector2(0, -20)
@@ -339,7 +341,7 @@ position = Vector2(353, 15)
 bounds = Vector2(220, 353)
 
 [node name="Spikes" parent="." unique_id=1779238335 instance=ExtResource("6_gk1sg")]
-position = Vector2(113, -8)
+position = Vector2(92, -8)
 
 [node name="Block" parent="." unique_id=608109146 instance=ExtResource("7_gk1sg")]
 position = Vector2(426, 8)
@@ -377,4 +379,13 @@ position = Vector2(391, -8)
 position = Vector2(637, -8)
 
 [node name="Spikes5" parent="." unique_id=2019137094 instance=ExtResource("6_gk1sg")]
-position = Vector2(692, -8)
+position = Vector2(654, -8)
+
+[node name="Flag" parent="." unique_id=1123178089 instance=ExtResource("11_uvw2q")]
+position = Vector2(1047, -31)
+level_path = "res://Scenes/Levels/Level 2.tscn"
+
+[node name="Blue Bird" parent="." unique_id=1039542943 instance=ExtResource("12_6xml1")]
+position = Vector2(980, -74)
+bounds = Vector2(850, 990)
+start_direction = -1

@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dta4mae0hu86a" path="res://Scenes/hurtbox.tscn" id="2_yyxxq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggyip"]
-size = Vector2(15, 7)
+size = Vector2(13, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yyxxq"]
-size = Vector2(13, 6)
+size = Vector2(11, 4)
 
 [node name="Spikes" type="StaticBody2D" unique_id=1779238335]
 
@@ -19,9 +19,9 @@ texture = ExtResource("1_ggyip")
 position = Vector2(0, 9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1764745608]
-position = Vector2(-0.5, -3.5)
+position = Vector2(-0.5, -2.5)
 shape = SubResource("RectangleShape2D_ggyip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=711192622]
-position = Vector2(-0.5, 6)
+position = Vector2(-0.5, 7)
 shape = SubResource("RectangleShape2D_yyxxq")
