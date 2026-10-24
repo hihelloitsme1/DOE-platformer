@@ -54,7 +54,6 @@ func _on_animated_sprite_2d_animation_finished():
 func _on_hitbox_body_entered(body):
 	if !hit:
 		animated_sprite_2d.play("hit_1");
-		print("jeep")
 	else:
 		animated_sprite_2d.play("hit_2");
 	body.velocity.y = bounce_height;
