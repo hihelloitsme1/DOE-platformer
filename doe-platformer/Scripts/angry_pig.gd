@@ -18,7 +18,6 @@ func _ready():
 	hit = false;
 
 func _physics_process(delta):
-	print(animated_sprite_2d.animation)
 	if position.x < bounds.x or position.x > bounds.y:
 		direction *= -1;
 		timer.start()
