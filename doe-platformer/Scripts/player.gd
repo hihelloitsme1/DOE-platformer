@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
 @export var animated_sprite_2d: AnimatedSprite2D
-#
+
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 const COYOTE_TIME = 0.1
 
 var dead;
 var time_since_floor: float
+
+var spawn;
 
 func _ready():
 	dead = false;

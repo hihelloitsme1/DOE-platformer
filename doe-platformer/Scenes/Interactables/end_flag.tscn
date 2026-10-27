@@ -141,6 +141,7 @@ animations = [{
 
 [node name="Flag" type="Area2D" unique_id=1123178089]
 script = ExtResource("1_p0q8r")
+level_path = "res://Scenes/Levels/Level 2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=780511738]
 position = Vector2(0.5, -23)
